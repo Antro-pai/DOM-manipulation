@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="changeMe">Change me!</h1>
+    <button id="btn">Click to Change</button>
+    <button id="redirect" style="background-color: blue;">Redirect to other</button>
+    
+    <div id="lists"></div>
+    <script>
+        let person={
+            name:'charan',
+            age:24,
+            graduation:'mca',
+            course:'frontend'
+        }
+
+       console.log( person.name)
+       console.log(person["age"])
+       document.writeln(person.course)
+
+      console.log(person.course='full stack') 
+
+     console.log( person["age"]=23);
+
+
+//for in loop
+
+     for(let persons in person){
+        console.log(persons)
+        console.log(person[persons])
+     }
+
+     //for of loop
+
+    let person1=[10,2,3,4]
+     for(let per of person1){
+        console.log(per)
+     }
+
+     for (let i = 0; i < 5; i++) {
+  if (i === 3) break; 
+  console.log(i);
+}
+
+for (let i = 0; i < 5; i++) {
+  if (i === 2) continue;
+  console.log(i);
+}
+
+let fruits=['apple','banana','grapes']
+
+console.log( fruits[0]) 
+  console.log(fruits[1]='orange') 
+//push method is used to add the element at the last and returs the updated total values
+ console.log(fruits.push('watermelon')) 
+ console.log(fruits)
+//unshift is used to add the elements at the start
+ console.log(fruits.unshift('bananan'))
+ console.log(fruits)
+//pop will remove the last element and returs removed element
+console.log(fruits.pop()) 
+console.log(fruits)
+//shift will remove the first index of an array and it will return
+console.log(fruits.shift()) 
+console.log(fruits);
+//splice method 
+let num=[1,2,3,4,5]
+ console.log(num.splice(2,1,44)) 
+ console.log(num)
+//slice method takes starting index and last index
+ let num1=[24,3,3,2,1,3]
+ console.log(num1.slice(2,4))
+//concat method is used to combaine the two arrays
+ let num2=[-1,-2,-3,-4]
+ let combainedValue=num2.concat(num1)
+   console.log(combainedValue);
+
+  //map 
+  let mapArray=[1,2,3,4,5] 
+  let total=mapArray.map(all=>all*all)
+  console.log(total)
+
+  //filter
+  let num3=[1,2,3,4,5,6]
+  let evenNum=num3.filter(num=>num%2===0);
+  console.log(evenNum);
+
+  let oddNum=num3.filter(num=>num%2!==0);
+  console.log(oddNum)
+
+  //reduce
+
+  let num4=[1,2,4,3,4,5]
+  let allValues=num4.reduce((acc,curr)=>acc+curr);
+  console.log(allValues);
+
+  //sort
+
+  let names=["d","a",'b','c','z']
+  let sorted=names.sort()
+  console.log(sorted);
+
+  //reverse
+  let names1=["d","a",'b','c','z']
+  let revesed=names1.reverse()
+  console.log(revesed)
+
+  //spread operator for arrays and object
+
+  let a=[1,2,3]
+  let all1=[...a,4,5,6,7]
+  console.log(all1);
+
+  let human1={name:'charan',age:23}
+  let human2={...human1,college:'nb science'}
+  console.log(human2);
+
+  function sum(a,b,...others){
+    console.log(a,b,others)
+  }
+  sum(1,2,3,4,5,6);
+
+//addEventLitener
+
+  let heading = document.getElementById("changeMe");
+  let button = document.getElementById("btn");
+
+  button.addEventListener("click", function() {
+    heading.innerText = "Text Changed!";
+    heading.style.color = "red";
+});
+  let heading1 = document.getElementById("changeMe");
+  heading.addEventListener('click',()=>{
+      heading.innerText='coming on the way'
+  });
+ 
+//BOM window object
+
+console.log(window)
+console.log(window.innerHeight)
+console.log(window.innerWidth)
+console.log(window.history)
+console.log(navigator)
+console.log(window.location)
+console.log(window.location.port)
+console.log(window.location.protocol)
+console.log(window.location.pathname)
+console.log(window.screen.height)
+console.log(window.screen.width)
+
+//setTimeout
+
+setTimeout(()=>{
+    console.log("print after 4 seconds")
+},4000);
+
+let clearedTimeout=setTimeout(()=>{
+    for(let i=0;i<10;i++){
+        console.log(i)
+    }
+},6000)
+
+clearTimeout(clearedTimeout);
+
+let timeoutId = setTimeout(() => {
+  console.log("This won't be seen");
+}, 5000);
+
+// Cancel timeout
+clearTimeout(timeoutId);
+
+
+let interval=setInterval(()=>{
+    console.log("hi charan")
+    for(let i=0;i<10;i++){
+        console.log(i)
+    }
+},5)
+
+clearInterval(interval);
+
+document.getElementById("redirect").addEventListener(('click'),()=>{
+    setTimeout(()=>{
+        window.location.href="https://www.google.com"
+    },3000)
+});
+
+//try block
+
+try {
+  let result = 5 / 0;
+  console.log("Result is", result);
+} catch (error) {
+  console.log("Error occurred:", error);
+}
+
+// let changeit=document.getElementById("changeme")
+// changeit.innerText="hello"
+
+
+// let title1=document.getElementsByTagName("title")
+// title1.innerText="DOM practice"
+
+
+   </script>
+</body>
+</html>
